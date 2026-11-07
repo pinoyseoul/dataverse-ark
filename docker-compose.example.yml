@@ -1,0 +1,51 @@
+version: "3.8"
+name: dataverse-ark-demo
+
+services:
+  dataverse:
+    image: gdcc/dataverse:latest
+    container_name: dataverse
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - solr
+    environment:
+      - 'TZ=UTC'
+      - 'DATAVERSE_DB_HOST=postgres'
+      - 'DATAVERSE_DB_PORT=5432'
+      - 'DATAVERSE_DB_NAME=dataverse'
+      - 'DATAVERSE_DB_USER=dataverse'
+      - 'DATAVERSE_DB_PASSWORD=secretpassword'
+      - 'DATAVERSE_SOLR_HOST=solr'
+      - 'DATAVERSE_SOLR_PORT=8983'
+      - 'DATAVERSE_FQDN=dataverse.example.org'
+      - 'DATAVERSE_SITEURL=https://dataverse.example.org'
+
+      # --- ARK PERSISTENT IDENTIFIER SPI CONFIGURATION ---
+      - 'dataverse_spi_pidproviders_directory=/dv/spi-providers'
+      - 'dataverse_pid_providers=ark'
+      - 'dataverse_pid_default__provider=ark'
+      - 'dataverse_pid_ark_type=ark'
+      - 'dataverse_pid_ark_label=Institutional ARK Repository'
+      - 'dataverse_pid_ark_authority=YOUR_NAAN_HERE'
+      - 'dataverse_pid_ark_shoulder=x3'
+      - 'dataverse_pid_ark_base__url=https://n2t.net/ark:/'
+      - 'dataverse_pid_ark_separator=/'
+    volumes:
+      # Mount the compiled JAR into the container's SPI directory
+      - ./spi-providers:/dv/spi-providers
+    ports:
+      - "8080:8080"
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres
+    environment:
+      - 'POSTGRES_DB=dataverse'
+      - 'POSTGRES_USER=dataverse'
+      - 'POSTGRES_PASSWORD=secretpassword'
+
+  solr:
+    image: gdcc/solr:9
+    container_name: solr
+    command: ["solr-precreate", "collection1"]
