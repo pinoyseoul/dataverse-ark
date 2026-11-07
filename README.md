@@ -2,7 +2,7 @@
 
 A standalone Java Service Provider Interface (SPI) plugin enabling native **Archival Resource Key (ARK)** persistent identifier support in **Harvard Dataverse 6.x+** without modifying core application code.
 
-Maintained by [OpenScience.ph](https://openscience.ph) / [OBRA Incorporated](https://pinoyseoul.com) and shared with the Global Dataverse Community Consortium (GDCC).
+Maintained by [OpenScience.ph](https://openscience.ph) / [OBRA Incorporated](https://obra.openscience.ph) and shared with the Global Dataverse Community Consortium (GDCC).
 
 ---
 
