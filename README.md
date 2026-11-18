@@ -1,8 +1,8 @@
-# Dataverse ARK Persistent Identifier (PID) Provider
+# Dataverse ARK Persistent Identifier Provider
 
-A standalone Java Service Provider Interface (SPI) plugin enabling native **Archival Resource Key (ARK)** persistent identifier support in **Harvard Dataverse 6.x+** without modifying core application code.
+A standalone Java Service Provider Interface plugin enabling native **Archival Resource Key** persistent identifier support in **Harvard Dataverse 6.x+** without modifying core application code.
 
-Maintained by [OpenScience.ph](https://openscience.ph) / [OBRA Incorporated](https://obra.openscience.ph) and shared with the Global Dataverse Community Consortium (GDCC).
+Maintained by [OBRA Incorporated](https://obra.openscience.ph) and shared with the Global Dataverse Community Consortium.
 
 ---
 
@@ -19,7 +19,7 @@ Starting with version 6.x, Harvard Dataverse introduced a modular Service Provid
 
 ---
 
-## Quick Start (Docker / Containerized Dataverse)
+## Quick Start
 
 ### 1. Build the JAR
 Compile the plugin using Apache Maven:
@@ -77,7 +77,7 @@ The provider reads parameters defined via container environment variables or Pay
 
 ## Institutional Background
 
-This provider was engineered by **OBRA Incorporated** as part of the **OpenScience.ph** sovereign research repository infrastructure, supporting persistent, zero-marginal-cost scientific discoverability for Philippine higher education institutions and regional academic commons.
+This provider was engineered as part of the **OpenScience.ph** sovereign research repository infrastructure, supporting persistent, zero-marginal-cost scientific discoverability for Philippine higher education institutions and regional academic commons.
 
 ---
 
